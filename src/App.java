@@ -1,10 +1,13 @@
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.Comparator;
 
 import com.google.gson.Gson;
 
 import domain.Movie;
+import models.Content;
 import pages.HtmlGenerator;
 import services.TmdbApiClient;
 
@@ -17,6 +20,8 @@ public class App {
         // Criando Objeto/ modelando para o tipo Movie
         Gson gson = new Gson();
         Movie Filmes = gson.fromJson(json, Movie.class);
+
+        Collections.sort(Filmes.getResults(), Comparator.comparing(Content::year));
 
         // Gerando arquivo html com dados da lista de filmes
         try (PrintWriter printWriter = new PrintWriter(

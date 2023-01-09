@@ -82,3 +82,10 @@ Criei a interface Content para tornar a gerar o html preparado para ser gerado i
 ```
 Com a implementação da interface eu achei melhor não utilizar mais a classe ListMovie, deixando para a classe Movie toda a responsabilidade de implementar os métodos da interface.<br>
 Obs.: Tambem era pedido para consumir a Api da marvel mas o site estava instavel e não consegui fazer meu cadastro.
+## Day 7
+### Criar criterios de ordenamento
+No ultimo dia o desafio era ordenar a lista de filmes, desafio tranquilo. Para isso usei a classe Collections com seu método sort:
+```java
+  Collections.sort(Filmes.getResults(), Comparator.comparing(Content::year));
+```
+A minha ordenação está pelo ano de lançamento, porém, pode-se mudar para outros criterios
